@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class primerange {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int m, n;
+
+        System.out.print("Enter starting number (m): ");
+        m = sc.nextInt();
+
+        System.out.print("Enter ending number (n): ");
+        n = sc.nextInt();
+
+        for (int i = m; i <= n; i++) {
+
+            if (i <= 1) continue; // skip 0 and 1
+
+            boolean isPrime = true;
+
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if (isPrime) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+}
