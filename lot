@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Lottery {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int lottery = (int)(Math.random() * 100);
+
+        System.out.print("Enter a 2-digit number: ");
+        int user = sc.nextInt();
+
+        // 🔴 Input validation
+        if (user < 10 || user > 99) {
+            System.out.println("Invalid input! Please enter a 2-digit number.");
+            return; // stop program
+        }
+
+        int l1 = lottery / 10;
+        int l2 = lottery % 10;
+
+        int u1 = user / 10;
+        int u2 = user % 10;
+
+        System.out.println("Lottery number: " + lottery);
+
+        if (user == lottery) {
+            System.out.println("You win Rs.10000");
+        }
+        else if (u1 == l2 && u2 == l1) {
+            System.out.println("You win Rs.3000");
+        }
+        else if (u1 == l1 || u1 == l2 || u2 == l1 || u2 == l2) {
+            System.out.println("You win Rs.1000");
+        }
+        else {
+            System.out.println("No match");
+        }
+    }
+}
