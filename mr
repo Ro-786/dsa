@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class MarksRange {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n;
+        System.out.print("Enter number of students: ");
+        n = sc.nextInt();
+
+        int count1 = 0, count2 = 0, count3 = 0, count4 = 0;
+
+        for (int i = 1; i <= n; i++) {
+            System.out.print("Enter marks: ");
+            int marks = sc.nextInt();
+
+            // 🔴 Invalid input check
+            if (marks < 0 || marks > 100) {
+                System.out.println("Invalid marks! Please enter between 0 and 100.");
+                i--; // repeat this student
+                continue;
+            }
+
+            if (marks >= 81 && marks <= 100) count1++;
+            else if (marks >= 61) count2++;
+            else if (marks >= 41) count3++;
+            else count4++;
+        }
+
+        System.out.println("81-100: " + count1);
+        System.out.println("61-80: " + count2);
+        System.out.println("41-60: " + count3);
+        System.out.println("0-40: " + count4);
+    }
+}
