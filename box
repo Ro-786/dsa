@@ -28,7 +28,7 @@ class Box {
     }
 }
 
-class Main {
+public class BoxProgram {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -54,7 +54,7 @@ class Main {
         System.out.println("\nEnter side of Cube:");
         int side = sc.nextInt();
 
-        // Creating objects using constructor
+        // Creating objects
         Box b1 = new Box(w1, h1, l1);
         Box b2 = new Box(w2, h2, l2);
         Box b3 = new Box(side);
