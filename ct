@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+class Time {
+    private int hour, min, sec;
+
+    // Constructor (only assigns values)
+    Time(int h, int m, int s) {
+        hour = h;
+        min = m;
+        sec = s;
+    }
+
+    // Add method
+    void add(Time t) {
+        int s = this.sec + t.sec;
+        int m = this.min + t.min;
+        int h = this.hour + t.hour;
+
+        // Handle carry
+        if (s >= 60) {
+            m += s / 60;
+            s = s % 60;
+        }
+
+        if (m >= 60) {
+            h += m / 60;
+            m = m % 60;
+        }
+
+        System.out.println("Added Time: " + h + "h " + m + "m " + s + "s");
+    }
+}
+
+class ClassTime {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input for Time 1
+        System.out.println("Enter Time 1:");
+        System.out.print("Hour: ");
+        int h1 = sc.nextInt();
+        System.out.print("Minute: ");
+        int m1 = sc.nextInt();
+        System.out.print("Second: ");
+        int s1 = sc.nextInt();
+
+        // Input for Time 2
+        System.out.println("\nEnter Time 2:");
+        System.out.print("Hour: ");
+        int h2 = sc.nextInt();
+        System.out.print("Minute: ");
+        int m2 = sc.nextInt();
+        System.out.print("Second: ");
+        int s2 = sc.nextInt();
+
+        // Passing values to constructor
+        Time t1 = new Time(h1, m1, s1);
+        Time t2 = new Time(h2, m2, s2);
+
+        // Add times
+        t1.add(t2);
+    }
+}
