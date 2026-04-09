@@ -29,3 +29,36 @@ class Average {
         avg(arr);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Average {
+
+    static void calculate(double... x) {
+        double sum = 0;
+
+        for (int i = 0; i < x.length; i++) {
+            sum += x[i];
+        }
+
+        System.out.println("Average is: " + (sum / x.length));
+    }
+
+    public static void main(String[] args) {
+        calculate(10, 20, 30);
+        calculate(5, 15);
+        calculate(2.5, 3.5, 4.5);
+    }
+}
