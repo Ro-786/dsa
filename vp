@@ -1,0 +1,112 @@
+import java.util.Scanner;
+
+class Vehicle {
+    protected String licence_number;
+    protected int speed;
+    protected String color;
+    protected String owner_name;
+
+    Vehicle(String licence_number, int speed, String color, String owner_name) {
+        this.licence_number = licence_number;
+        this.speed = speed;
+        this.color = color;
+        this.owner_name = owner_name;
+    }
+
+    void showdata() {
+        System.out.println("This is a vehicle class");
+        System.out.println("Licence Number: " + licence_number);
+        System.out.println("Speed: " + speed);
+        System.out.println("Color: " + color);
+        System.out.println("Owner Name: " + owner_name);
+    }
+}
+
+// Bus class
+class Bus extends Vehicle {
+    private int route_no;
+
+    Bus(String licence_number, int speed, String color, String owner_name, int route_no) {
+        super(licence_number, speed, color, owner_name);
+        this.route_no = route_no;
+    }
+
+    void showdata() {
+        super.showdata();
+        System.out.println("Route Number: " + route_no);
+        System.out.println("This is a Bus class\n");
+    }
+}
+
+// Car class
+class Car extends Vehicle {
+    private String manufacturer_name;
+
+    Car(String licence_number, int speed, String color, String owner_name, String manufacturer_name) {
+        super(licence_number, speed, color, owner_name);
+        this.manufacturer_name = manufacturer_name;
+    }
+
+    void showdata() {
+        super.showdata();
+        System.out.println("Manufacturer Name: " + manufacturer_name);
+        System.out.println("This is a Car class\n");
+    }
+}
+
+// Main class (must match file name)
+public class VehicleProblem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Bus input
+        System.out.println("Enter Bus Details:");
+        System.out.print("Licence Number: ");
+        String bln = sc.nextLine();
+
+        System.out.print("Speed: ");
+        int bspeed = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Color: ");
+        String bcolor = sc.nextLine();
+
+        System.out.print("Owner Name: ");
+        String bowner = sc.nextLine();
+
+        System.out.print("Route Number: ");
+        int route = sc.nextInt();
+        sc.nextLine();
+
+        Bus b = new Bus(bln, bspeed, bcolor, bowner, route);
+
+        // Car input
+        System.out.println("\nEnter Car Details:");
+        System.out.print("Licence Number: ");
+        String cln = sc.nextLine();
+
+        System.out.print("Speed: ");
+        int cspeed = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Color: ");
+        String ccolor = sc.nextLine();
+
+        System.out.print("Owner Name: ");
+        String cowner = sc.nextLine();
+
+        System.out.print("Manufacturer Name: ");
+        String manu = sc.nextLine();
+
+        Car c = new Car(cln, cspeed, ccolor, cowner, manu);
+
+        // Output
+        System.out.println("\n--- Bus Details ---");
+        b.showdata();
+
+        System.out.println("--- Car Details ---");
+        c.showdata();
+
+        sc.close();
+    }
+}
